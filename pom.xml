@@ -1,0 +1,136 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>RESTAPIAutomationUsingSoapUI</groupId>
+	<artifactId>RESTAPIAutomationUsingSoapUI</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+
+
+
+	<build>
+
+
+		<!-- Source directory configuration -->
+		<sourceDirectory>src</sourceDirectory>
+		<plugins>
+			<!-- Following plugin executes the testng tests -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.14.1</version>
+				<configuration>
+					<!-- Suite testng xml file to consider for test execution -->
+					<suiteXmlFiles>
+						<suiteXmlFile>testng.xml</suiteXmlFile>
+						<!-- <suiteXmlFile>testng.xml</suiteXmlFile> -->
+					</suiteXmlFiles>
+				</configuration>
+			</plugin>
+			<!-- Compiler plugin configures the java version to be used for compiling 
+				the code -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.8.1</version>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+				</configuration>
+			</plugin>
+
+			<!-- Post-Man plugin <plugin> <groupId>ch.fortysix</groupId> <artifactId>maven-postman-plugin</artifactId> 
+				<executions> <execution> <id>send a mail</id> <phase>test</phase> <goals> 
+				<goal>send-mail</goal> </goals> <inherited>true</inherited> <configuration> 
+				From Email address <from>mia27dec@gmail.com</from> Email subject <subject>Test 
+				Automation Report</subject> Fail the build if the mail doesnt reach <failonerror>true</failonerror> 
+				host <mailhost>smtp.gmail.com</mailhost> port of the host <mailport>465</mailport> 
+				<mailssl>true</mailssl> <mailAltConfig>true</mailAltConfig> Email Authentication(USername 
+				and Password) <mailuser>mia27dec@gmail.com</mailuser> <mailpassword>MIA@27dec</mailpassword> 
+				<receivers> To Email address <receiver>mia27dec@gmail.com</receiver> </receivers> 
+				<fileSets> <fileSet> <directory>${basedir}/target/site</directory> <includes> 
+				<include>**/surefire-report.html</include> </includes> Report directory Path 
+				<directory>"C://Users//irfan//workspace//automationproject//TestReport//Test-Automaton-Report.html"</directory> 
+				<directory>${basedir}/TestReport/Test-Automaton-Report.html</directory> <includes> 
+				Report file name <include>Test-Automaton-Report.html</include> </includes> 
+				Use Regular Expressions like **/*.html if you want all the html files to 
+				send </fileSet> </fileSets> </configuration> </execution> </executions> </plugin> -->
+
+		</plugins>
+
+
+
+
+
+
+		<pluginManagement>
+			<plugins>
+				<!-- Ignore/Execute plugin execution -->
+				<!-- this is to eliminate eclipse import errors -->
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<!-- copy-dependency plugin -->
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>org.apache.maven.plugins</groupId>
+										<artifactId>maven-resources-plugin</artifactId>
+										<versionRange>[2.4.3,)</versionRange>
+										<goals>
+											<goal>resources</goal>
+											<goal>testResources</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore />
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+
+
+	</build>
+
+	<repositories>
+		<repository>
+			<id>smartbear</id>
+			<name>smartbear repository</name>
+			<url>http://smartbearsoftware.com/repository/maven2</url>
+		</repository>
+	</repositories>
+
+	<dependencies>
+
+		<!-- https://mvnrepository.com/artifact/org.testng/testng -->
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>6.14.3</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.smartbear.soapui</groupId>
+			<artifactId>soapui</artifactId>
+			<version>5.2.1</version>
+			<scope>compile</scope>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-compiler-plugin</artifactId>
+			<version>3.8.1</version>
+			<type>maven-plugin</type>
+		</dependency>
+
+	</dependencies>
+
+</project>
